@@ -1,6 +1,5 @@
 /******************** (C) COPYRIGHT 2014 ANO Tech ********************************
   * 作者   ：匿名科创
-  *修改者  ：NJU LET_US_FLY GROUP
  * 文件名  ：main.c
  * 描述    ：主循环
  * 官网    ：www.anotc.com
