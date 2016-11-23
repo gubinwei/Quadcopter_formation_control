@@ -383,6 +383,7 @@ void ANO_DT_Data_Receive_Anl(u8 *data_buf,u8 num)
 		RX_CH[AUX3] = (vs16)(*(data_buf+16)<<8)|*(data_buf+17) ;
 		RX_CH[AUX4] = (vs16)(*(data_buf+18)<<8)|*(data_buf+19) ;
 	}
+	
 
 	if(*(data_buf+2)==0X10)								//PID1
     {

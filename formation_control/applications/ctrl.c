@@ -281,6 +281,7 @@ void All_Out(float out_roll,float out_pitch,float out_yaw)
 		}
 	}
 	/* xxx */
+	
 	motor_out[0] = (s16)(motor[0]);  
 	motor_out[1] = (s16)(motor[1]);	 
 	motor_out[2] = (s16)(motor[2]);
