@@ -118,7 +118,7 @@ I (.\drivers\i2c_soft.h)(0x570B9A0A)
 I (.\drivers\ultrasonic.h)(0x57B461E0)
 I (applications\fly_mode.h)(0x579714F4)
 F (.\applications\scheduler.h)(0x570B9A0A)()
-F (.\applications\init.c)(0x582C87A5)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\applications -I .\build -I .\drivers -I .\Libraries\STM32F4xx_StdPeriph_Driver\inc -I .\Libraries\CMSIS\Include -I .\Libraries\CMSIS\ST\STM32F4xx\Include -I .\Libraries\USBStack\INC -I .\Libraries\FatFS\src --c99-I H:\win10_2software\Keil\ARM\RV31\INC-I H:\win10_2software\Keil\ARM\CMSIS\Include-I H:\win10_2software\Keil\ARM\Inc\ST\STM32F4xx-D__UVISION_VERSION="520" -DUSE_STDPERIPH_DRIVER -DUSE_USB_OTG_FS-o .\build\init.o --omf_browse .\build\init.crf --depend .\build\init.d)
+F (.\applications\init.c)(0x582C89DE)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I .\applications -I .\build -I .\drivers -I .\Libraries\STM32F4xx_StdPeriph_Driver\inc -I .\Libraries\CMSIS\Include -I .\Libraries\CMSIS\ST\STM32F4xx\Include -I .\Libraries\USBStack\INC -I .\Libraries\FatFS\src --c99-I H:\win10_2software\Keil\ARM\RV31\INC-I H:\win10_2software\Keil\ARM\CMSIS\Include-I H:\win10_2software\Keil\ARM\Inc\ST\STM32F4xx-D__UVISION_VERSION="520" -DUSE_STDPERIPH_DRIVER -DUSE_USB_OTG_FS-o .\build\init.o --omf_browse .\build\init.crf --depend .\build\init.d)
 I (applications\include.h)(0x57C39406)
 I (.\Libraries\CMSIS\ST\STM32F4xx\Include\stm32f4xx.h)(0x570B9A09)
 I (.\Libraries\CMSIS\Include\core_cm4.h)(0x570B9A09)

@@ -50,8 +50,9 @@ void Loop_check()  //TIME INTTERRUPT
 
 void Duty_1ms()
 {
-	Get_Cycle_T(1)/1000000.0f;
-
+	//Get_Cycle_T(1)/1000000.0f;
+	Get_Cycle_T(1);
+	
 	ANO_DT_Data_Exchange();												//数传通信定时调用
 }
 
@@ -75,8 +76,6 @@ void Duty_2ms()
 	
 	RC_Duty( inner_loop_time , Rc_Pwm_In );				// 遥控器通道数据处理 ，输入：执行周期，接收机pwm捕获的数据。
 	
-	
-	
 	test[1] = GetSysTime_us()/1000000.0f;
 }
 
@@ -95,8 +94,6 @@ void Duty_5ms()
 
 void Duty_10ms()
 {
-
-		
 	  ANO_AK8975_Read();			//获取电子罗盘数据	
 }
 

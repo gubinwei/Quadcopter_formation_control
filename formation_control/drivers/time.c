@@ -119,7 +119,6 @@ void sys_time()
   if(time_1ms < 999)
 	{
     time_1ms++;
-
 		Loop_check();
 	}
 	else
