@@ -141,7 +141,7 @@ void Uart5_Init(u32 br_num)
 	NVIC_InitTypeDef NVIC_InitStructure;
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE); //开启USART2时钟
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE); //开启USART5时钟
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC,ENABLE);	
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
 	
@@ -152,7 +152,6 @@ void Uart5_Init(u32 br_num)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);	
 
-	
 	GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_UART5);
   GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_UART5);
 	
@@ -182,7 +181,6 @@ void Uart5_Init(u32 br_num)
 	USART_Init(UART5, &USART_InitStructure);
 	
 
-
 	//使能UART5接收中断
 	USART_ITConfig(UART5, USART_IT_RXNE, ENABLE);
 	//使能USART5
@@ -201,14 +199,12 @@ u8 count5=0;
 void Uart5_IRQ(void)
 {
 	u8 com_data;
-
   //接收中断
 	if( USART_GetITStatus(UART5,USART_IT_RXNE) )
 	{
 		USART_ClearITPendingBit(UART5,USART_IT_RXNE);//清除中断标志
 
 		com_data = UART5->DR;
-		
 		Ultra_Get(com_data);
 	}
 
@@ -222,7 +218,6 @@ void Uart5_IRQ(void)
 		{
 			UART5->CR1 &= ~USART_CR1_TXEIE;		//关闭TXE（发送中断）中断
 		}
-
 
 		//USART_ClearITPendingBit(USART2,USART_IT_TXE);
 	}

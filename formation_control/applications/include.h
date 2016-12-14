@@ -16,6 +16,7 @@
 #define USE_US100           //使用us100型号超声波 
 // #define USE_KS103					//使用ks103型号超声波
 
+
 #define MAXMOTORS 		(4)		//电机数量
 #define GET_TIME_NUM 	(5)		//设置获取时间的数组数量
 #define CH_NUM 				(8) 	//接收机通道数量

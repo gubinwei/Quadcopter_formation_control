@@ -6,7 +6,6 @@
  * 淘宝    ：anotc.taobao.com
  * 技术Q群 ：190169595
 **********************************************************************************/
-
 #include "include.h"
 #include "mpu6050.h"
 #include "ak8975.h"
@@ -218,7 +217,6 @@ static void  Param_SetSettingToFC(void)
 	memcpy(&ctrl_1.PID[PIDPITCH],&pid_setup.groups.ctrl1.pitch,sizeof(pid_t));
 	memcpy(&ctrl_1.PID[PIDYAW],&pid_setup.groups.ctrl1.yaw,sizeof(pid_t));
 	
-	
 	memcpy(&ctrl_2.PID[PIDROLL],&pid_setup.groups.ctrl2.roll,sizeof(pid_t));
 	memcpy(&ctrl_2.PID[PIDPITCH],&pid_setup.groups.ctrl2.pitch,sizeof(pid_t));
 	memcpy(&ctrl_2.PID[PIDYAW],&pid_setup.groups.ctrl2.yaw,sizeof(pid_t));
@@ -308,12 +306,14 @@ void PID_Para_Init()
 
 void Para_Init()
 {
+
 	int32_t result = Para_ReadSettingFromFile();
   if(result < 0)
   {
 	 Para_ResetToFactorySetup();
 	 flash_init_error = 1;
 	}
+	
 	Param_SetSettingToFC();
 	
 	PID_Para_Init();

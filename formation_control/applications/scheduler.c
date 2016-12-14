@@ -45,7 +45,7 @@ void Loop_check()  //TIME INTTERRUPT
 		loop.check_flag = 1;	//该标志位在循环的最后被清零
 	}
 	
-		LED_1ms_DRV( );								//20级led渐变显示
+		//LED_1ms_DRV( );								//20级led渐变显示
 }
 
 void Duty_1ms()
@@ -106,7 +106,7 @@ void Duty_50ms()
 {
 	//Mode();	
 	mode_check(CH_filter,mode_value);
-	LED_Duty();								//LED任务
+	//LED_Duty();								//LED任务
 	Ultra_Duty();
 }
 
@@ -134,6 +134,7 @@ void Duty_Loop()   					//最短任务周期为1ms，总的代码执行时间需
 		{
 			loop.cnt_10ms = 0;
 			Duty_10ms();					//周期10ms的任务
+			
 		}
 		if( loop.cnt_20ms >= 20 )
 		{

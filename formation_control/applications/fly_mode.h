@@ -11,7 +11,6 @@ enum
 	GPS,
 	BACK_HOME,
 	//UTRASONIC,
-
 };
 
 extern u8 mode_value[],mode_state;

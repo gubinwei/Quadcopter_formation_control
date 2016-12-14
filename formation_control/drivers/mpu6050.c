@@ -216,7 +216,7 @@ void MPU6050_Init(u16 lpf)
     Delay_ms(10);
     MPU6050_setFullScaleAccelRange(MPU6050_ACCEL_FS_8);	//加速度度最大量程 +-8G
     Delay_ms(10);
-    MPU6050_setDLPF(default_filter);  //42hz
+    MPU6050_setDLPF(default_filter);  //20hz
     Delay_ms(10);
     MPU6050_setI2CMasterModeEnabled(0);	 //不让MPU6050 控制AUXI2C
     Delay_ms(10);

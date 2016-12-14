@@ -96,10 +96,10 @@ void PWM_IN_Init(void)
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
   GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-  GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_TIM3);
-	GPIO_PinAFConfig(GPIOD, GPIO_PinSource13, GPIO_AF_TIM3);
-	GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_TIM3);
-	GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_TIM3);
+  GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_TIM4);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource13, GPIO_AF_TIM4);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_TIM4);
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_TIM4);
   
 	TIM4->PSC = (168/2)-1;
 	

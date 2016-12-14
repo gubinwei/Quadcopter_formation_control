@@ -34,7 +34,7 @@ typedef struct
 	xyz_f_t err_weight;
 	float FB;
 
-}ctrl_t;
+ }ctrl_t;
 
 extern ctrl_t ctrl_1;
 extern ctrl_t ctrl_2;

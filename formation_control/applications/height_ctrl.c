@@ -22,7 +22,6 @@ float	set_height_e,set_height_em,
 
 _hc_value_st hc_value;
 
-
 u8 thr_take_off_f = 0;
 u8 auto_take_off,auto_land;
 float height_ref;
@@ -159,7 +158,6 @@ float Height_Ctrl(float T,float thr,u8 ready,float en)
 		case 1:
 		{
 
-			
 			step = 2;
 			break;
 		}
@@ -177,7 +175,6 @@ float Height_Ctrl(float T,float thr,u8 ready,float en)
 		}	
 		case 4:
 		{
-			
 			step = 0;
 			break;
 		}	

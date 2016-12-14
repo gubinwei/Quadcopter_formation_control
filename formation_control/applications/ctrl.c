@@ -24,13 +24,13 @@ void Ctrl_Para_Init()		//设置默认参数
 	ctrl_1.FB = 0.20;   //外  0<fb<1
 }
 
-xyz_f_t except_A = {0,0,0};
+xyz_f_t except_A = {0,0,0};//expect_Angel
 
 xyz_f_t ctrl_angle_offset = {0,0,0};
 
 xyz_f_t compensation;
 
-void CTRL_2(float T)
+void CTRL_2(float T)//0.005S
 {
 // 	static xyz_f_t acc_no_g;
 // 	static xyz_f_t acc_no_g_lpf;
@@ -48,7 +48,7 @@ void CTRL_2(float T)
 	except_A.z = To_180_degrees(except_A.z);
 //==============================================================================
 // 	acc_no_g.x =  mpu6050.Acc.x - reference_v.x *4096;
-// 	acc_no_g.y =  mpu6050.Acc.y - reference_v.y *4096;
+// 	ac c_no_g.y =  mpu6050.Acc.y - reference_v.y *4096;
 // 	acc_no_g.z =  mpu6050.Acc.z - reference_v.z *4096;
 // 	
 // 	acc_no_g_lpf.x += 0.5f *T *3.14f * ( acc_no_g.x - acc_no_g_lpf.x );
@@ -98,14 +98,13 @@ void CTRL_2(float T)
 	ctrl_2.out.y = ctrl_2.PID[PIDPITCH].kp *( ctrl_2.err.y + ctrl_2.err_d.y + ctrl_2.err_i.y );  //pit
 	ctrl_2.out.z = ctrl_2.PID[PIDYAW].kp   *( ctrl_2.err.z + ctrl_2.err_d.z + ctrl_2.err_i.z );
 
-
 }
 
 xyz_f_t except_AS;
 
 float g_old[ITEMS];
 
-void CTRL_1(float T)  //x roll,y pitch,z yaw
+void CTRL_1(float T)  //x roll,y pitch,z yaw;T/s
 {
 	xyz_f_t EXP_LPF_TMP;
 	/* 给期望（目标）角速度 */
@@ -200,23 +199,30 @@ void Thr_Ctrl(float T)
 	
 /////////////////////////////////////////////////////////////////
 	
-	if(mode_value[BARO])
-	{
-		if(NS==0) //丢失信号
-		{
-			thr = LIMIT(thr,0,500);
-		}
-		
-		thr_value = Height_Ctrl(T,thr,fly_ready,1);   //实际使用值
-	}
-	else
-	{
-		if(NS==0) //丢失信号
+//	if(mode_value[BARO])
+//	{
+//		if(NS==0) //丢失信号
+//		{
+//			thr = LIMIT(thr,0,500);
+//		}
+//		
+//		thr_value = Height_Ctrl(T,thr,fly_ready,1);   //实际使用值
+//	}
+//	else
+//	{
+//		if(NS==0) //丢失信号
+//		{
+//			thr = LIMIT(thr,0,350);
+//		}
+//		thr_value = Height_Ctrl(T,thr,fly_ready,0);   //实际使用值
+//	}
+// add by ycnalin  2016 12 10
+	
+	  if(NS==0) //丢失信号
 		{
 			thr = LIMIT(thr,0,350);
 		}
 		thr_value = Height_Ctrl(T,thr,fly_ready,0);   //实际使用值
-	}
 ////////////////////////////////////////////////////////////////
 	
 	thr_value = LIMIT(thr_value,0,10 *MAX_THR *MAX_PWM/100);
@@ -286,7 +292,6 @@ void All_Out(float out_roll,float out_pitch,float out_yaw)
 	motor_out[1] = (s16)(motor[1]);	 
 	motor_out[2] = (s16)(motor[2]);
 	motor_out[3] = (s16)(motor[3]);
-
 	
 	SetPwm(motor_out,0,1000); //1000
 	

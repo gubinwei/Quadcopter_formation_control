@@ -50,11 +50,11 @@ void RC_Duty( float T , u16 tmp16_CH[CH_NUM] )
 	s16 CH_TMP[CH_NUM];
 	static u16 Mapped_CH[CH_NUM];
 
-	if( NS == 1 )
+	if( NS == 1 )	//Remote Control
 	{
 		CH_Mapping_Fun(tmp16_CH,Mapped_CH);
 	}
-	else if( NS == 2 )
+	else if( NS == 2 )	//Ground Station
 	{
 		CH_Mapping_Fun(RX_CH,Mapped_CH);
 	}

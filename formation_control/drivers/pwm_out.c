@@ -11,7 +11,7 @@
 #include "include.h"
 #include "mymath.h"
 
-//21分频到 84000000/21 = 4M   0.25us
+//21分频到 84000000/21 = 4M   0.25us		(In fact, it's 84/42=2M note by ycnalin)
 
 #define INIT_DUTY 4000 //u16(1000/0.25)
 #define ACCURACY 10000 //u16(2500/0.25) //accuracy
@@ -23,7 +23,7 @@ u8 PWM_Out_Init(uint16_t hz)//400hz
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
 	GPIO_InitTypeDef GPIO_InitStructure;
 	uint16_t PrescalerValue = 0;
-	u32 hz_set = ACCURACY*hz;
+	u32 hz_set = ACCURACY*hz;	//hz_set=4M
 
 	TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
   TIM_OCStructInit(&TIM_OCInitStructure);
@@ -49,9 +49,9 @@ u8 PWM_Out_Init(uint16_t hz)//400hz
   GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_TIM5);
 	
 	/* Compute the prescaler value */
-  PrescalerValue = (uint16_t) ( ( SystemCoreClock /2 ) / hz_set ) - 1;
+  PrescalerValue = (uint16_t) ( ( SystemCoreClock /2 ) / hz_set ) - 1;// =20
   /* Time base configuration */
-  TIM_TimeBaseStructure.TIM_Period = ACCURACY;									
+  TIM_TimeBaseStructure.TIM_Period = ACCURACY;				// 200Hz;			
   TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;		
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;

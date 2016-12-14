@@ -27,7 +27,7 @@ u8 All_Init()
 	
 	PWM_IN_Init();						//初始化接收机采集功能
 	
-	PWM_Out_Init(400);				//初始化电调输出功能	
+	PWM_Out_Init(400);				//初始化电调输出功能 200HZ	
 	
 	Usb_Hid_Init();						//飞控usb接口的hid初始化
 	
@@ -37,7 +37,7 @@ u8 All_Init()
 	
 	MPU6050_Init(20);   			//加速度计、陀螺仪初始化，配置20hz低通
 	
-	LED_Init();								//LED功能初始化
+	//LED_Init();								//LED功能初始化
 	
 	Usart2_Init(500000);			//串口2初始化，函数参数为波特率
 	//Usart2_Init(256000);
@@ -52,22 +52,22 @@ u8 All_Init()
 	
 	Ultrasonic_Init();   			//超声波初始化
 	
-	ak8975_ok = !(ANO_AK8975_Run());
+	ak8975_ok = !(ANO_AK8975_Run());  //电子罗盘
 	
-	if( !mpu6050_ok )
-	{
-		LED_MPU_Err();
-	}
-	else if( !ak8975_ok )
-	{
-		LED_Mag_Err();
-	}
-	else if( !ms5611_ok )
-	{
-		LED_MS5611_Err();
-	}
+//	if( !mpu6050_ok )
+//	{
+//		LED_MPU_Err();
+//	}
+//	else if( !ak8975_ok )
+//	{
+//		LED_Mag_Err();
+//	}
+//	else if( !ms5611_ok )
+//	{
+//		LED_MS5611_Err();
+//	}
 	
-	aircraft_mode_led(MAXMOTORS);
+//	aircraft_mode_led(MAXMOTORS);
 	
 	Cycle_Time_Init();
 	
